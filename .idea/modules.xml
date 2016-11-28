@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/grails-app/grails-app.iml" filepath="$PROJECT_DIR$/grails-app/grails-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/grailsBlog.iml" filepath="$PROJECT_DIR$/.idea/modules/grailsBlog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/grailsBlog_integrationTest.iml" filepath="$PROJECT_DIR$/.idea/modules/grailsBlog_integrationTest.iml" group="grailsBlog" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/grailsBlog_main.iml" filepath="$PROJECT_DIR$/.idea/modules/grailsBlog_main.iml" group="grailsBlog" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/grailsBlog_test.iml" filepath="$PROJECT_DIR$/.idea/modules/grailsBlog_test.iml" group="grailsBlog" />
+      <module fileurl="file://$PROJECT_DIR$/build/resources/resources.iml" filepath="$PROJECT_DIR$/build/resources/resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/test/test.iml" filepath="$PROJECT_DIR$/src/test/test.iml" />
+    </modules>
+  </component>
+</project>

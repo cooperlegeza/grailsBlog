@@ -8,7 +8,21 @@
 		<title>Coolio Blog</title>
 	</head>
 	<body class="container">
-	<div class="col-sm-12">Hello, world!
-	</div>
+		<div class="nav" role="navigation">
+            <ul>
+                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+	            <li><g:link class="create" controller="BlogPost" action="create">New post</g:link></li>
+	            <li><g:link class="list" controller="BlogPost" action="index">Index</g:link></li>
+            </ul>
+    	</div>
+    	<br>
+    	<div>
+    		<g:each in="${blogs}">
+    			<h3>${it.dateCreated}</h3>
+    			<h2>${it.title}</h2>
+    			<p>${it?.text}</p>
+    			<div><h5>Posted by ${it?.author}</h5></div>
+    		</g:each>
+    	</div>
 	</body>
 </html>

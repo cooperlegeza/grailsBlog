@@ -2,5 +2,5 @@ package grailsblog
 
 class BlogPostController {
 
-    def post = {render "Hello!"}
+    static scaffold = BlogPost
 }
