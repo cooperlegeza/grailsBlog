@@ -9,7 +9,7 @@ class UrlMappings {
             }
         }
 
-        "/"(controller: "blogHome", view: "blogHome")
+        "/"(view:'/index')
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
