@@ -1,7 +1,7 @@
 package grailsblog
 
 class BlogHomeController {
-	def BlogHome = {
+	def blogHome = {
 		def blogs = []
 		blogs = BlogPost.findAll()
 		[blogs: blogs]
