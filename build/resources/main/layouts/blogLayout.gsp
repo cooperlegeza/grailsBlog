@@ -37,11 +37,21 @@
 	<div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+               <sec:ifAnyGranted roles='ROLE_ADMIN'>
 	            <li><g:link class="create" controller="BlogPost" action="create">New post</g:link></li>
+	            <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
+	           </sec:ifAnyGranted>
+	           
+	           <sec:ifAnyGranted roles='ROLE_USER'>
+	           <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
+	           </sec:ifAnyGranted>
+	           
 	            <li><g:link class="list" controller="BlogPost" action="index">Post List</g:link></li>
-	            <li><g:link controller="User" action="login">Login</g:link></li>
+	            <sec:ifNotLoggedIn>
+				<li><g:link controller='login' action='auth'>Login</g:link></li>
+				</sec:ifNotLoggedIn>
             </ul>
-            </div>
+        </div>
     <g:layoutBody/>
 
     <div class="footer" role="contentinfo"></div>

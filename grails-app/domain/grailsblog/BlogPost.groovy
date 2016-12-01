@@ -6,7 +6,7 @@ class BlogPost {
 	Date dateCreated
 	String author
 	String text
-
+	static hasMany = [comment:Comment]
     static constraints = {
 		title(blank:false)
 		author(nullable:true)

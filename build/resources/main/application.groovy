@@ -6,10 +6,17 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.example.Se
 grails.plugin.springsecurity.authority.className = 'org.example.SecRole'
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 grails.plugin.springsecurity.logout.postOnly = false
+grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/action/controller '
+grails.plugins.springsecurity.ui.register.postRegisterUrl = '/action/controller '
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/BlogHome/blogHome',   access: ['permitAll']],
 	[pattern: '/BlogPost/create',   access: ['ROLE_ADMIN']],
-	
+	[pattern: '/BlogPost/save',   access: ['ROLE_ADMIN']],
+	[pattern: '/BlogPost/show',   access: ['permitAll']],
+	[pattern: '/BlogPost/edit',   access: ['ROLE_ADMIN']],
+	[pattern: '/Comment/create',   access: ['permitAll']],
+	[pattern: '/Comment/save',   access: ['permitAll']],
+	[pattern: '/Comment/show',   access: ['permitAll']],
 	[pattern : '/', access: ['permitAll']],
 	[pattern: '/User/login',     access: ['ROLE_ADMIN']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -21,7 +28,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/js/**',       access: ['permitAll']],
 	[pattern: '/**/css/**',      access: ['permitAll']],
 	[pattern: '/**/images/**',   access: ['permitAll']],
-	[pattern: '/**/favicon.ico', access: ['permitAll']]
+	[pattern: '/**/favicon.ico', access: ['permitAll']],
+	[pattern: '/logout/logout', access: ['permitAll']]
 ]
 grails.plugins.springsecurity.interceptUrlMap = [
 	 '/**': ["IS_AUTHENTICATED_FULLY"]
@@ -34,4 +42,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+
+
+
 

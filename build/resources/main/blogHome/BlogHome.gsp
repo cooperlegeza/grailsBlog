@@ -15,10 +15,14 @@
     	<div>
     		<g:each in="${blogs}">
     			<h3>${it.dateCreated}</h3>
-    			<h2>${it.title}</h2>
+    			<g:link controller='BlogPost' action='show'>${it.title}</g:link>
     			<p>${it?.text}</p>
     			<div><h5>Posted by ${it?.author}</h5></div>
+    			<sec:ifAnyGranted roles='ROLE_USER,ROLE_ADMIN'>
+    		<g:link controller='comment' action='create'>Comment</g:link>
+    		  </sec:ifAnyGranted>
     		</g:each>
+    		 
     	</div>
 	</body>
 </html>
