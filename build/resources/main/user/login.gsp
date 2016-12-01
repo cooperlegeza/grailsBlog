@@ -1,6 +1,6 @@
 <html>
   <head>
-    <meta name = "layout" content="blogLayout"/>
+    <meta name = "layout" content="loginLayout"/>
     <title>Login</title>         
   </head>
   <body>
@@ -22,7 +22,7 @@
 								<label for='password'>Password:</label>
 							</td>
 							<td valign='top' style='text-align:left;' width='80%'>
-								<input id="password" type='password' name='password'
+								<input id="password" type='text' name='password'
 									value='${user?.password}' />
 							</td>
 						</tr>
