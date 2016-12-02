@@ -44,7 +44,7 @@ pre {
 
 }
 .navbar-default, .navbar-static-top {
-    background-color: #4D8618;
+    background-color: #0000ff;
     border: 0px;
 }
 a.navbar-brand {
@@ -389,48 +389,6 @@ a:hover {
     color: #db4800;
     text-decoration: none
 }
-
-h1 {
-    font-size: 2.125em;
-    margin: .67em 0
-}
-
-h2 {
-    font-size: 1.6875em;
-    font-weight: bold;
-}
-
-h3, #toctitle, .sidebarblock > .content > .title {
-    font-size: 1.375em;
-    font-weight: bold;
-}
-
-h4 {
-    font-size: 1.125em;
-    font-weight: bold;
-}
-
-h5 {
-    font-size: 1.125em;
-    font-weight: bold;
-    color: #db4800;
-}
-
-h6 {
-    font-size: 1.08em;
-    font-weight: normal;
-    color: #db4800;
-}
-
-h7 {
-    font-weight: bold;
-    color: #245f78;
-}
-
-h8 {
-    color: #245f78;
-}
-
 #footer {
     background: #f2f2f2;
     text-align: center;
@@ -508,12 +466,6 @@ h8 {
     position: relative;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 5%
-}
-
-.row:before, .row:after {
-    content: " ";
-    display: table
 }
 
 .row:after {

@@ -1277,15 +1277,15 @@ h3,
 }
 h4,
 .h4 {
-  font-size: 18px;
+  font-size: 10px;
 }
 h5,
 .h5 {
-  font-size: 14px;
+  font-size: 8px;
 }
 h6,
 .h6 {
-  font-size: 12px;
+  font-size: 6px;
 }
 p {
   margin: 0 0 10px;
@@ -6758,7 +6758,16 @@ button.close {
   }
 }
 .postStyle {
-  border-color: black;
+  border-color: lightgray;
   border: solid;
+  border-width: 1px;
+}
+.comment-author-border {
+  outline-color: gray;
+  border-width: 1pix
+}
+.comment-border {
+  border: solid;
+  border-width: 1px;
 }
 /*# sourceMappingURL=bootstrap.css.map */

@@ -4,12 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
-        <g:layoutTitle default="Grails"/>
+        <g:layoutTitle default="RadicalBlog"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <asset:stylesheet src="application.css"/>
-
     <g:layoutHead/>
 </head>
 <body>
@@ -45,9 +44,9 @@
 	           <sec:ifAnyGranted roles='ROLE_USER'>
 	           <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
 	           </sec:ifAnyGranted>
-	           
+
 	            <li><g:link class="list" controller="BlogPost" action="index">Post List</g:link></li>
-	            <sec:ifNotLoggedIn>
+                <sec:ifNotLoggedIn>
 				<li><g:link controller='login' action='auth'>Login</g:link></li>
 				</sec:ifNotLoggedIn>
             </ul>

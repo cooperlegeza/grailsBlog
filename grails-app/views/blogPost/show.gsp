@@ -9,32 +9,68 @@
         <a href="#show-blogPost" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         
         <div id="show-blogPost" class="content scaffold-show row" role="main">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h1>${this.blogPost.title}</h1>
             <g:if test="${flash.message}">
             <div class="alert alert-danger alert-dismissable" role="status">${flash.message}</div>
             </g:if>
-            <div class="col-12-sm">
-                <div class="row"><h1><b>${this.blogPost.title}</b></h1></div>
-                <div class="row postStyle">${this.blogPost.text}</div>
-                <div>Posted by: ${this.blogPost.author}</div>
-                <div>Posting date: ${this.blogPost.dateCreated}</div>
+            <div>
+                <sec:ifAnyGranted roles='ROLE_ADMIN'>
+                    <div class="col-sm-12">
+                        <g:form resource="${this.blogPost}" method="DELETE">
+                            <fieldset class="buttons col-sm-6">
+                                <g:link class="edit" action="edit" resource="${this.blogPost}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                                <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                            </fieldset>
+                        </g:form>
+                    </div>
+                </sec:ifAnyGranted>
+                <div class="row col-sm-12 postStyle">${this.blogPost.text}</div>
+                <div class="row">
+                        <h4><span>Posted by: ${this.blogPost.author}</span>
+                        <span class="pull-right">Posting date: ${this.blogPost.dateCreated}</span>
+                        </h4>
+                </div>
             </div>
             <hr>
             <br>
-            <div>Comments:</div>
-            <g:each in="${this.blogPost.comment}">
-                1
-            </g:each>
-    		  
-            <sec:ifAnyGranted roles='ROLE_ADMIN'>
-                <g:form resource="${this.blogPost}" method="DELETE">
-                    <fieldset class="buttons">
-                        <g:link class="edit" action="edit" resource="${this.blogPost}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                        <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                    </fieldset>
-                </g:form>
-            </sec:ifAnyGranted>
+            <g:form action="saveComment" controller="Comment">
+                    <div>
+                        <span class="col-sm-1">Author: </span>
+                        <span class="col-sm-11">
+                            <g:textField name="author" class="author" id="authorId" params="${[author: author]}">
+                            </g:textField>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="col-sm-1">Comment: </span>
+                        <span class="col-sm-11">
+                            <g:textArea name="comment" class="comment" id="commentId" params="${[comment: comment]}">
+                            </g:textArea></span>
+                    </div>
+                    <g:hiddenField name="title" value="${this.blogPost.title}"/>
+                    <div class="row col-sm-12">
+                        <g:submitButton name="saveComment" value="Submit"/>
+                    </div>
+                </div>
+            </g:form>
+
+            <div class="col-sm-12">
+                <div class="row"><h2>Comments:</h2></div>
+                <hr class="comment-hr">
+                <g:each in="${this.blogPost.comments}">
+                    <div class="row">
+                        <span>
+                            <h3>${it.author}</h3>
+                        </span>
+                        <span class="pull-right">
+                            <h4>Posting date: ${it.dateCreated}</h4>
+                        </span>
+                    </div>
+                    <div class="comment-border row">${it.comment}</div>
+                    <hr>
+                    <br>
+                </g:each>
+            </div>
         </div>
     </body>
-  
 </html>

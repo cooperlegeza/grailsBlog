@@ -6,7 +6,7 @@ class BlogPost {
 	Date dateCreated
 	String author
 	String text
-	static hasMany = [comment:Comment]
+	static hasMany = [comments:Comment]
     static constraints = {
 		title(blank:false)
 		author(nullable:true)
@@ -15,5 +15,6 @@ class BlogPost {
 	
 	static mapping = {
 		sort "dateCreated":"desc"
+		comments sort: 'dateCreated', order: 'desc'
 	}
 }

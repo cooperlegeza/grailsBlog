@@ -22,9 +22,18 @@
             </g:hasErrors>
             <g:form action="save">
                 <fieldset class="form">
-                    <div class="row"><div><b>Title: </b></div><div><g:textField name="title" id="titleId" /></div></div>
-                    <div class="row"><div><b>Author: </b></div><div><g:textField name="author" id="authorId" /></div></div>
-                    <div class="row"><div><b>Text: </b></div><div><g:textArea name="text" id="textId" rows="10" cols="200"/></div></div>
+                    <div class="row">
+                        <div><b>Title: </b></div>
+                        <div><g:textField name="title" id="titleId" /></div>
+                    </div>
+                    <div class="row">
+                        <div><b>Author: </b></div>
+                        <div><g:textField name="author" id="authorId" /></div>
+                    </div>
+                    <div class="row">
+                        <div><b>Text: </b></div>
+                        <div><g:textArea name="text" id="textId" rows="10" cols="200"/></div>
+                    </div>
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

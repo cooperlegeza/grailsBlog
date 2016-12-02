@@ -51,6 +51,15 @@ class CommentController {
         respond comment
     }
 
+
+    @Transactional
+    def saveComment(){
+        BlogPost post = BlogPost.findByTitle(params.title)
+        post.addToComments(new Comment(author:params.author,comment:params.comment)).save()
+        redirect(controller: "BlogPost", action: "Show", id:post.id)
+    }
+
+
     @Transactional
     def update(Comment comment) {
         if (comment == null) {
