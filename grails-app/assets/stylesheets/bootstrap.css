@@ -6757,4 +6757,8 @@ button.close {
     display: none !important;
   }
 }
+.postStyle {
+  border-color: black;
+  border: solid;
+}
 /*# sourceMappingURL=bootstrap.css.map */

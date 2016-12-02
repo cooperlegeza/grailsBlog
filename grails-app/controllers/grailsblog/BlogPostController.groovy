@@ -16,6 +16,8 @@ class BlogPostController {
     }
 
     def show(BlogPost blogPost) {
+        def title = BlogPost.get(params.title)
+        [title: title]
         respond blogPost
     }
 
