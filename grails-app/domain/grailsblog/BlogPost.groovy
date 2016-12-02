@@ -16,5 +16,6 @@ class BlogPost {
 	static mapping = {
 		sort "dateCreated":"desc"
 		comments sort: 'dateCreated', order: 'desc'
+		text type: "text"
 	}
 }

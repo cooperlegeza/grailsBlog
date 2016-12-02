@@ -54,11 +54,23 @@
                 </div>
             </g:form>
 
-            <div>Comments:</div>
-            <g:each in="${this.blogPost.comments}">
-                <div>${it.author}</div>
-                <div>${it.comment}</div>
-            </g:each>
+            <div class="col-sm-12">
+                <div class="row"><h2>Comments:</h2></div>
+                <hr class="comment-hr">
+                <g:each in="${this.blogPost.comments}">
+                    <div class="row">
+                        <span>
+                            <h3>${it.author}</h3>
+                        </span>
+                        <span class="pull-right">
+                            <h4>Posting date: ${it.dateCreated}</h4>
+                        </span>
+                    </div>
+                    <div class="comment-border row">${it.comment}</div>
+                    <hr>
+                    <br>
+                </g:each>
+            </div>
         </div>
     </body>
 </html>

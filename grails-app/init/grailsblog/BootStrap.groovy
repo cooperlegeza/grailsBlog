@@ -13,12 +13,12 @@ class BootStrap {
 				text:'I am a blog post! I would enjoy it if you read me,' +
 						'and or destroyed the world!', dateCreated: new Date()).save()
 		
-		def testUser = new SecUser(username: 'me', password: 'password').save()
-		def testUser2 = new SecUser(username: 'user', password: 'password').save()
+		def adminUser = new SecUser(username: 'me', password: 'password').save()
+		def regularUser2 = new SecUser(username: 'user', password: 'password').save()
 		
 		
-			  SecUserSecRole.create testUser, adminRole
-			  SecUserSecRole.create testUser2, userRole
+			  SecUserSecRole.create adminUser, adminRole
+			  SecUserSecRole.create regularUser2, userRole
 		
 			  SecUserSecRole.withSession {
 				 it.flush()
