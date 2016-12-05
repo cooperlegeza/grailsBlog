@@ -35501,3 +35501,4 @@ Caused by: java.lang.reflect.InvocationTargetException: null
 Caused by: java.lang.NullPointerException: Cannot get property 'year' on null object
 	at grailsblog.BlogPost$$EQ4WUQtF.___init___(BlogPost.groovy:9)
 	... 66 common frames omitted
+ERROR grails.plugin.springsecurity.ReflectionUtils - Your security configuration settings use the old prefix 'grails.plugins.springsecurity' but must now use 'grails.plugin.springsecurity'
