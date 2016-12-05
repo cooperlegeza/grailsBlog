@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%--suppress ALL --%>
 <html>
     <head>
         <meta name="layout" content="blogLayout" />
@@ -18,28 +19,29 @@
                 </g:if>
             </div>
             <div>
-                <sec:ifAnyGranted roles='ROLE_ADMIN'>
-                    <div class="col-sm-12">
-                        <g:form resource="${this.blogPost}" method="DELETE">
-                            <fieldset class="buttons col-sm-6">
-                                <g:link class="edit" action="edit" resource="${this.blogPost}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                                <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                            </fieldset>
-                        </g:form>
-                    </div>
-                </sec:ifAnyGranted>
                 <div class="row col-sm-12">${this.blogPost.text}</div>
                 <div class="row col-sm-12">
                     <hr>
                     <br>
+
                     <h4>
-                        <span>Posted by ${this.blogPost.author} on <span title="${this.blogPost.dateCreated}"><g:formatDate format="MM/dd"/></span></span>
+                        <span>Posted by ${this.blogPost.author} on <span title="${this.blogPost.dateCreated}"><g:formatDate format="MM/dd"/  date="${this.blogPost.dateCreated}"/></span></span>
                     </h4>
+
                 </div>
+                <sec:ifAnyGranted roles='ROLE_ADMIN'>
+                        <g:form class="row col-sm-2" resource="${this.blogPost}" method="DELETE">
+                            <fieldset class="buttons col-sm-12">
+                                <g:link class="edit" action="edit" resource="${this.blogPost}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                                <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                            </fieldset>
+                        </g:form>
+                </sec:ifAnyGranted>
             </div>
             <br>
         </div>
         <div>
+
             <br>
 
             <div class="col-sm-12">
@@ -56,7 +58,7 @@
                     <br>
                 </g:each>
 
-                <g:form action="saveComment" controller="Comment">
+                <g:formRemote name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
                     <div>
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-11">
@@ -70,12 +72,16 @@
                             <g:textArea name="comment" class="comment" id="commentId" params="${[comment: comment]}">
                             </g:textArea></span>
                     </div>
-                    <g:hiddenField name="title" value="${this.blogPost.title}"/>
+                    <g:hiddenField name="title" class="hiddenTitle" value="${this.blogPost.title}"/>
                     <div class="row col-sm-12">
                         <g:submitButton name="saveComment" value="Submit"/>
                     </div>
-                </g:form>
+                </g:formRemote>
+                <button class="commentSubmit">Submit</button>
             </div>
         </div>
     </body>
+    <script>
+
+    </script>
 </html>
