@@ -47,7 +47,7 @@
             <div class="col-sm-12">
                 <div class="row"><h2>${this.blogPost.commentsSize()} Comments:</h2></div>
                 <hr class="comment-hr">
-                <g:each in="${this.blogPost.comments}">
+                <g:each id="commentUpdates" in="${this.blogPost.comments}">
                     <div class="row">
                         <span>
                             <font color="red"><b>${it.author}</b> <g:formatDate format="MMM dd, yyyy" date="${it.dateCreated}"/> at <g:formatDate format="hh:mm aaa" date="${it.dateCreated}"/></font>
@@ -58,7 +58,7 @@
                     <br>
                 </g:each>
 
-                <g:formRemote name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
+                <g:formRemote update="commentUpdates" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
                     <div>
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-11">
