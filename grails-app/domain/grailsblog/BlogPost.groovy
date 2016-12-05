@@ -1,6 +1,9 @@
 package grailsblog
 
 class BlogPost {
+	static searchable ={
+		only = 'title'
+	}
 	
 	String title
 	Date dateCreated
