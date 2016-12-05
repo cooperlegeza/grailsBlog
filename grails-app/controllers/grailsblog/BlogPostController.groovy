@@ -108,4 +108,5 @@ class BlogPostController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
 }
