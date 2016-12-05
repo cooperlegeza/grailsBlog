@@ -18,7 +18,7 @@
 				<h3><g:link  mapping="searchFriendlyURL"
 							 params='[title: "${it.title}", year: "${it.dateCreated.year + 1900}", month: "${it.dateCreated.month + 1}", day: "$it.dateCreated.date"]'
 							 id='${it.id}'>${it.title}</g:link></h3>
-    			<p class="blog-front-page-post">${it?.text}</p>
+    			<p class="blog-front-page-post">${it?.textForFrontPage()}</p>
     			<div><h5>Posted by ${it?.author} on ${it.dateCreated}</h5></div>
 				<hr>
 				</div>
