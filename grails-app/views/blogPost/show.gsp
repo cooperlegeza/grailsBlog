@@ -47,18 +47,10 @@
             <div class="col-sm-12">
                 <div class="row"><h2>${this.blogPost.commentsSize()} Comments:</h2></div>
                 <hr class="comment-hr">
-                <g:each id="commentUpdates" in="${this.blogPost.comments}">
-                    <div class="row">
-                        <span>
-                            <font color="red"><b>${it.author}</b> <g:formatDate format="MMM dd, yyyy" date="${it.dateCreated}"/> at <g:formatDate format="hh:mm aaa" date="${it.dateCreated}"/></font>
-                        </span>
-                    </div>
-                    <div class="row">${it.comment}</div>
-                    <hr>
-                    <br>
-                </g:each>
-
-                <g:formRemote update="commentUpdates" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
+                <div id="commentUpdates">
+                    <g:render template='commentsTemplate' collection="${this.blogPost.comments}"/>
+                </div>
+                <g:form id="commentForm" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
                     <div>
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-11">
@@ -74,14 +66,28 @@
                     </div>
                     <g:hiddenField name="title" class="hiddenTitle" value="${this.blogPost.title}"/>
                     <div class="row col-sm-12">
-                        <g:submitButton name="saveComment" value="Submit"/>
+                        <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
                     </div>
-                </g:formRemote>
+                </g:form>
                 <button class="commentSubmit">Submit</button>
             </div>
         </div>
     </body>
     <script>
-
+        $("#submitButton").on('submit', function() {
+            $.ajax(
+                {
+                    type: 'POST',
+                    data: $("#commentForm").serialize(),
+                    url: '/comment/saveComment',
+                    success: function (data, textStatus) {
+                        $('#commentUpdates').html(data);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    }
+                }
+            );
+            return false
+        }
     </script>
 </html>
