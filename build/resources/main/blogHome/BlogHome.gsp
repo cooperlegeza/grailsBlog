@@ -8,12 +8,7 @@
 		<title>Coolio Blog</title>
 	</head>
 	<body class="container">
-		
-            
-    	
-    	<br>
-    	<div>
-    		<g:each in="${blogs}">
+			<g:each in="${blogs}">
     			<h3>${it.dateCreated}</h3>
     			<g:link controller='BlogPost' action='show' id='${it.id}'>${it.title}</g:link>
     			<p>${it?.text}</p>
