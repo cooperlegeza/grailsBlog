@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/#"> THE MOST RADICAL BLOG IN THE WORLD, DUUUUDE
+                <a class="navbar-brand" href="/#"> A Blog
                 </a>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">

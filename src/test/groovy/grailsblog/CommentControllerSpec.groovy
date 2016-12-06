@@ -59,6 +59,11 @@ class CommentControllerSpec extends Specification {
             Comment.count() == 1
     }
 
+    void "Test the saveComment action correctly persists an instance"() {
+        when:"The saveComment action is executed with an invalid instance"
+            request.contentType = FROM_CONTENT_TYPE
+    }
+
     void "Test that the show action returns the correct model"() {
         when:"The show action is executed with a null domain"
             controller.show(null)

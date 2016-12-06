@@ -1,6 +1,9 @@
 package grailsblog
 
 class BlogPost {
+
+	int FRONT_PAGE_POST_LENGTH_LIMIT = 200
+
 	static searchable ={
 		only = 'title'
 	}
@@ -9,6 +12,25 @@ class BlogPost {
 	Date dateCreated
 	String author
 	String text
+
+	def textForFrontPage() {
+
+		String frontPageText = text.take(FRONT_PAGE_POST_LENGTH_LIMIT)
+		if(frontPageText.length() == 200){
+			frontPageText = frontPageText + "..."
+		}
+		return frontPageText
+	}
+
+	def dayOfTheWeek() {
+		def timeZone = TimeZone.getTimeZone('GMT')
+		return dateCreated.format('EEEE', timeZone)
+	}
+
+	def commentsSize(){
+		return comments.size()
+	}
+
 	static hasMany = [comments:Comment]
     static constraints = {
 		title(blank:false)

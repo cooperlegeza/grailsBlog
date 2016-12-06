@@ -34,7 +34,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/images/**',   access: ['permitAll']],
 	[pattern: '/**/favicon.ico', access: ['permitAll']],
 	[pattern: '/logout/logout', access:  ['permitAll']],
-	[pattern: '/comment/**', 	access:  ['permitAll']]
+	[pattern: '/comment/**', 	access:  ['permitAll']],
+	[pattern: '/blogPost/**', access: ['ROLE_ADMIN']]
 ]
 grails.plugins.springsecurity.interceptUrlMap = [
 	 '/**': ["IS_AUTHENTICATED_FULLY"]
