@@ -3,6 +3,10 @@ package grailsblog
 class BlogPost {
 
 	int FRONT_PAGE_POST_LENGTH_LIMIT = 200
+
+	static searchable ={
+		only = 'title'
+	}
 	
 	String title
 	Date dateCreated
