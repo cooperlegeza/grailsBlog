@@ -43788,3 +43788,4 @@ groovy.lang.MissingPropertyException: No such property: title for class: java.ut
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 	at java.lang.Thread.run(Thread.java:745)
+ERROR grails.plugin.springsecurity.ReflectionUtils - Your security configuration settings use the old prefix 'grails.plugins.springsecurity' but must now use 'grails.plugin.springsecurity'

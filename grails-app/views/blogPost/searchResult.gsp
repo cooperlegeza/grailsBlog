@@ -1,14 +1,15 @@
 <html>
-<h1>Search Results</h1>
+<head>
+    <meta name = "layout" content="blogLayout"/>
+    <title>Search Results</title>
+</head>
 <body class="container">
-<div class="col-md-12">
-<g:form>
-<h1>${blogPostSearchResults}</h1>
-<g:each in="${blogPostSearchResults}" var="post" status="i">
+    <h1>Search Results</h1>
+    <div class="col-md-12">
+            <g:each in="${blogPostSearchResults}" var="post" status="i">
 
-<h4> ${i+1}. ${post.title},${post.content} </h4>
-</g:each>
-</g:form>
-</div>
+
+            </g:each>
+    </div>
 </body>
 </html>
