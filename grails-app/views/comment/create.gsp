@@ -24,9 +24,8 @@
                     <div class="row"><div><b>Author: </b></div><div><g:textField name="author" id="authorId" /></div></div>
                     <div class="row"><div><b>Comment: </b></div><div><g:textArea name="comment" id="commentId" rows="10" cols="200"/></div>
                 </fieldset>
-                <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                </fieldset>
+
             </g:form>
         </div>
     </body>

@@ -14,7 +14,7 @@ Given(/^I am logged in as a blogger$/) do
   end
 
   on_page BlogHome do |page|
-    page.login_button
+    page.login
   end
 
   on_page LoginPage do |page|
@@ -25,31 +25,32 @@ Given(/^I am logged in as a blogger$/) do
 end
 
 When(/^I publish a new blog post$/) do
-  pending #TODO Complete page objects
   on_page BlogHome do |page|
-    page.create_new_post
+    page.create_post
   end
 
-  on_page CreateBlog do |page|
+  on_page CreatePost do |page|
     page.title = BLOG_TITLE
     page.author = BLOG_AUTHOR
     page.entry = BLOG_ENTRY
-    page.submit_blog_post
+    page.create
   end
 end
 
 Then(/^I am notified that the blog post was successfully added$/) do
   pending #TODO Complete page objects
-  on_page BlogShow do |page|
-    expect(page.created).to eq (BLOG_TITLE)
+  on_page BlogPost do |page|
+    expect(page.title).to eq BLOG_TITLE
+    expect(page.author).to eq BLOG_AUTHOR
+    expect(page.text).to eq BLOG_ENTRY
   end
-  @dateCreated = page.dateCreated
+  @dateCreated = page.date_created
 end
 
 And(/^the newly added blog post is at the top of the recent posts list$/) do
   pending #TODO complete page objects
   visit_page BlogHome do |page|
-    expect(page.blogListFirstTitle).to eq (BLOG_TITLE)
-    expect(page.blogListFirstDateCreated).to eq (@dateCreated)
+    expect(page.blogListFirstTitle).to eq BLOG_TITLE
+    expect(page.blogListFirstDateCreated).to eq @dateCreated
   end
 end

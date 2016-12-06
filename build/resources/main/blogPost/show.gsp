@@ -69,7 +69,6 @@
                         <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
                     </div>
                 </g:form>
-                <button class="commentSubmit">Submit</button>
             </div>
         </div>
     </body>

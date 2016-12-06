@@ -7,7 +7,8 @@ class BlogHome
 
   links(:blog_post_links, :class => 'blog-post-title')
   spans(:date_created_spans, :class => 'date-created')
-  input(:login_button, :class => 'login-button')
+  link(:login, :class => 'login-button')
+  link(:create_post, :class => 'create')
 
 
 end

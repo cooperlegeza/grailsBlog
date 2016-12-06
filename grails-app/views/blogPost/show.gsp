@@ -13,19 +13,19 @@
             <div class="row col-sm-12">
                 <font color="gray"><g:formatDate date="${this.blogPost.dateCreated}" format="EEEE, MMMM dd, yyyy"/></font>
 
-                <h2>${this.blogPost.title}</h2>
+                <h2><span id="title">${this.blogPost.title}</span></h2>
                 <g:if test="${flash.message}">
                 <div class="alert alert-danger alert-dismissable" role="status">${flash.message}</div>
                 </g:if>
             </div>
             <div>
-                <div class="row col-sm-12">${this.blogPost.text}</div>
+                <div class="row col-sm-12" id="text">${this.blogPost.text}</div>
                 <div class="row col-sm-12">
                     <hr>
                     <br>
 
                     <h4>
-                        <span>Posted by ${this.blogPost.author} on <span title="${this.blogPost.dateCreated}"><g:formatDate format="MM/dd"/  date="${this.blogPost.dateCreated}"/></span></span>
+                        <span>Posted by <span id="author">${this.blogPost.author}</span> on <span id="date-created" title="${this.blogPost.dateCreated}"><g:formatDate format="MM/dd"/  date="${this.blogPost.dateCreated}"/></span></span>
                     </h4>
 
                 </div>
