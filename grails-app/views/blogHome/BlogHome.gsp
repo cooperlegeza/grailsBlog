@@ -8,11 +8,8 @@
 		<title>Coolio Blog</title>
 	</head>
 	<body class="container">
-		
-            
-    	
-    	<br>
-    	<div>
+	<br>
+	<div>
     		<g:each in="${blogs}">
 				<div class="row">
 				<h3><g:link  mapping="searchFriendlyURL"

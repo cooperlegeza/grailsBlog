@@ -56,9 +56,9 @@
 				<li><g:link controller='login' action='auth'>Login</g:link></li>
 				</sec:ifNotLoggedIn>
 				
-				<g:form action="searchResult" controller="BlogPost">
+            <g:form name="searchResult" url="[controller:'BlogPost',action:'searchResult']">
 							<div class="form-group">
-                            <li><g:textField name="search" class="search form-control input-sm input-search" id="searchId" params="${[searchText: searchText]}">
+                            <li><g:textField name="searchText" class="search form-control input-sm input-search" id="searchText" >
                             </g:textField></li>
                             <li>
                         <g:submitButton name="searchPost" class="btn btn-default btn-sm" value="Search">
@@ -68,6 +68,8 @@
 				</div>
             </ul>
         </div>
+        
+        
     <g:layoutBody/>
 
     <div class="footer" role="contentinfo"></div>

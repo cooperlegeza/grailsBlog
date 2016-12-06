@@ -16,11 +16,12 @@ class BlogPostController {
     }
 
 	def searchResult(){
-		def blogPostSearchResults = [:]
-		 blogPostSearchResults = BlogPost.findAllByTitleIlike("%" + params.searchText + "%")
-		 
-		//[blogPostSearchResults: blogPostSearchResults]
-		[blogPostSearchResults: blogPostSearchResults]
+
+		
+		def postList = BlogPost.findAllByTitleIlike("%" + params.searchText + "%")
+		 render(view:'searchResult' , model:[postList: postList])
+
+		
 	}
     def show(BlogPost blogPost) {
         def title = BlogPost.get(params.title)
