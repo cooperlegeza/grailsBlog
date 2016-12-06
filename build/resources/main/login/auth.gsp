@@ -126,7 +126,6 @@
             document.forms['loginForm'].elements['username'].focus();
         })();
     </script>
-    <div class="footer" role="contentinfo"></div>
     <div id="spinner" class="spinner" style="display:none;">
         Loading…
     </div>

@@ -53,7 +53,7 @@
 
 	            <li><g:link class="list" controller="BlogPost" action="index">Post List</g:link></li>
                 <sec:ifNotLoggedIn>
-				<li><g:link controller='login' action='auth'>Login</g:link></li>
+				<li><g:link controller='login' action='auth' class="login-button">Login</g:link></li>
 				</sec:ifNotLoggedIn>
 				
 				<g:form action="searchResult" controller="BlogPost">
