@@ -43,12 +43,12 @@
             <div class="form-group">
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
                <sec:ifAnyGranted roles='ROLE_ADMIN'>
-	            <li><g:link class="create" controller="BlogPost" action="create">New post</g:link></li>
-	            <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
+                   <li><g:link class="create" controller="BlogPost" action="create"><button class="btn btn-default">New post</button></g:link></li>
+                   <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()"><button class="btn btn-default">Logout</button></g:link></li>
 	           </sec:ifAnyGranted>
 	           
 	           <sec:ifAnyGranted roles='ROLE_USER'>
-	           <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
+	           <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()"><button class="btn btn-default">Logout</button></g:link></li>
 	           </sec:ifAnyGranted>
 
 	            <li><g:link class="list" controller="BlogPost" action="index">Post List</g:link></li>
