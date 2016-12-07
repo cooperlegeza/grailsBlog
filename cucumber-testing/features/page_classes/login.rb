@@ -8,6 +8,4 @@ class LoginPage
   text_field(:password, :id => 'password')
   button(:submit_button, :id => 'submit')
 
-
-
 end

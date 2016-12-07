@@ -1009,3 +1009,11 @@ html, body, .st-container, .st-pusher, .st-content {
         float: none;
     }
 }
+
+#summary {
+    border: groove #000000;
+}
+
+.blogs {
+    border: groove #000000;
+}

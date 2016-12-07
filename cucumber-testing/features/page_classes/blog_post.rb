@@ -4,12 +4,12 @@ require 'watir-webdriver'
 class BlogPost
   include PageObject
 
-  span(:title, :class => 'title')
-  span(:author, :class => 'author')
+  span(:title, :id => 'title')
+  span(:author, :id => 'author')
   div(:text, :id => 'text')
   span(:date, :id => 'date-created')
 
   def date_created
-    
+    DateTime.parse(date_element.attribute('title'))
   end
 end
