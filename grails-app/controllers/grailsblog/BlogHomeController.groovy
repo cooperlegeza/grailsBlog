@@ -7,8 +7,9 @@ class BlogHomeController {
 		def blogs = []
 		blogs = BlogPost.findAll()
 		def tenMostRecentBlogs = []
+		def size = blogs.size()
 		if(blogs.size < 10) {
-			0.step blogs.size() - 1, 1 {
+			0.step size, 1, {
 				tenMostRecentBlogs.add(it, blogs.get(it))
 			}
 		} else {
