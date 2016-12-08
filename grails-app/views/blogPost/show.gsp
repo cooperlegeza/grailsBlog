@@ -54,7 +54,7 @@
                 <div id="commentUpdates">
                     <g:render template='commentsTemplate' collection="${this.blogPost.comments}"/>
                 </div>
-                <g:form id="commentForm" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
+                <g:formRemote id="commentForm" name='saveComment' url='[controller:"Comment", action:"saveComment"]'>
                     <div style="height:50px; padding-top:10px">
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-2 ">

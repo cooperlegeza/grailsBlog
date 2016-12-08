@@ -54,16 +54,8 @@
                 <div id="commentUpdates">
                     <g:render template='commentsTemplate' collection="${this.blogPost.comments}"/>
                 </div>
-<<<<<<< HEAD
-                <g:formRemote id="commentForm" update="commentUpdates" name='saveComment' url='[controller:"Comment", action:"saveComment"]'>
-=======
                 <g:form id="commentForm" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
-<<<<<<< HEAD
                     <div style="height:50px; padding-top:10px">
-=======
->>>>>>> 85ce071239b3726fb7226b9fd1082b793eee184c
-                    <div>
->>>>>>> d698e55adcbeb4bada45f812a8336a168cc29b30
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-2 ">
                        
@@ -77,15 +69,12 @@
                             <g:textArea name="comment" class="comment form-control" id="commentId" style="height:200px">
                             </g:textArea></span>
                     </div>
-<<<<<<< HEAD
-                    <g:hiddenField name="title" class="hiddenTitle" value="${this.blogPost.title}"/>
-                    <div class="row col-sm-12" style="height:50px;">
-                        <g:submitButton id="submitButton" class ="btn btn-default" name="saveComment" value="Submit"/>
-=======
+
+                    
                     <g:hiddenField name="id" class="hiddenTitle" value="${this.blogPost.id}"/>
                     <div class="row col-sm-12">
                         <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
->>>>>>> d698e55adcbeb4bada45f812a8336a168cc29b30
+
                     </div>
                 </g:formRemote>
             </div>

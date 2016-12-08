@@ -36,11 +36,6 @@ log<!doctype html>
 							 params='[title: "${it.title}", year: "${it.dateCreated.year + 1900}", month: "${it.dateCreated.month + 1}", day: "$it.dateCreated.date"]'
 
 							 id='${it.id}'>${it.title}</g:link></h3>
-    			<p class="blog-front-page-post">${it?.textForFrontPage()}</p>
-    			<div><h5>Posted by ${it?.author} on ${it.dateCreated}</h5></div>
-				
-
-							 id='${it.id}' class="blog-post-title">${it.title}</g:link></h3>
     				<p><span class="blog-front-page-post">${it?.text}</span></p>
 					<br>
 					<div>
