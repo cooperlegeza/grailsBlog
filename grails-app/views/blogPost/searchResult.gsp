@@ -6,7 +6,8 @@
 <div style="height:20px;"></div>
 	 <g:each in="${this.postList?.reverse()}" name="defaultList" var="post" status="i">
 
-                <g:link mapping="searchFriendlyURL" params='[title: "${post.title}"]' id="${post.id}">
+                <g:link mapping="searchFriendlyURL" params='[title: "${post.title}"] ' id="${post.id}" >
+               
                   <p><strong class="blogTitle col-xs-12">${post.title}</strong></p>
                 </g:link>
                   <p class="col-xs-12">${post.text}</p>

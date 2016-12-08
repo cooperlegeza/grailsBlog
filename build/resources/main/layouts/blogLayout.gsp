@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navbar navbar-default navbar-static-top" role="navigation" style="background-image: url('//cdn2.hubspot.net/hub/53/file-2185775137-jpg/assets/blog.hubspot.com/images/banners/marketing-banner-125.jpg?t=1481059001317'); height:200px">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/#"> A Blog
+                <a class="navbar-brand" href="/#"> 
                 </a>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
@@ -38,7 +38,7 @@
             
         </div>
     </div>
-	<div class="nav" role="navigation">
+	<div class="nav li" role="navigation">
             <ul>
             <div class="form-group">
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -56,13 +56,15 @@
 				<li><g:link controller='login' action='auth'>Login</g:link></li>
 				</sec:ifNotLoggedIn>
 				
-            <g:form name="searchResult" url="[controller:'BlogPost',action:'searchResult']">
+            <g:form name="searchResult" url="[controller:'BlogPost',action:'searchResult']" onsubmit="return isSearchTextFieldHasValue()">
 							<div class="form-group">
-                            <li><g:textField name="searchText" class="search form-control input-sm input-search" id="searchText" >
+							
+                            <li><g:textField name="searchText" class="search form-control  required="required" input-sm input-search" id="searchText" style="height:30px">
+                            
                             </g:textField></li>
                             <li>
-                        <g:submitButton name="searchPost" class="btn btn-default btn-sm" value="Search">
-                        <span class="glyphicon glyphicon-search"></span> </g:submitButton>
+                        <g:submitButton name="searchPost" id="submit" class="btn btn-default  btn-info btn-sm " value="Search" >
+                        </g:submitButton>
                         </li>
                 </g:form>
 				</div>
@@ -72,12 +74,21 @@
         
     <g:layoutBody/>
 
-    <div class="footer" role="contentinfo"></div>
+    <div class="footer" role="contentinfo">
 
-    <div id="spinner" class="spinner" style="display:none;">
+    <div id="spinner" class="" style="display:none;">
         <g:message code="spinner.alt" default="Loading&hellip;"/>
     </div>
-
+</div>
+	   <script type="text/Javascript">                      
+               $('#submit').click(function()
+	 {
+      if( !document.getElementById('searchText').value ) {
+          alert('Enter valid search text');
+          return false
+      }
+	});
+                </script>
     <asset:javascript src="application.js"/>
 
 </body>

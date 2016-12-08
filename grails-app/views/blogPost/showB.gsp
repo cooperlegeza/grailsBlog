@@ -51,14 +51,14 @@
                     <g:render template='commentsTemplate' collection="${this.blogPost.comments}"/>
                 </div>
                 <g:formRemote update="commentUpdates" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
-                    <div>
+                    <div style="height:20px;">
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-11">
                             <g:textField name="author" class="author" id="authorId" params="${[author: author]}">
                             </g:textField>
                         </span>
                     </div>
-                    <div>
+                    <div style="height:20px;">
                         <span class="col-sm-1">Comment: </span>
                         <span class="col-sm-11">
                             <g:textArea name="comment" class="comment" id="commentId" params="${[comment: comment]}">
@@ -69,8 +69,7 @@
                         <g:submitButton name="saveComment" value="Submit"/>
                     </div>
                 </g:formRemote>
-                <button class="commentSubmit">Submit</button>
-            </div>
+             </div>
         </div>
     </body>
     <script>

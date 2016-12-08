@@ -84,7 +84,7 @@ img {
 }
 
 .footer {
-    background: #0000ff;
+    background: #BFBEC6 ;
     color: #0000ff;
     clear: both;
     font-size: 0.8em;
@@ -95,6 +95,10 @@ img {
 
 .footer a {
     color: #4D8618;
+}
+
+.imageBackground {
+	background-image: url(../images/theme.jpg);
 }
 
 .spinner {
@@ -111,6 +115,7 @@ img {
 /* NAVIGATION MENU */
 
 .nav {
+	background-color: #BFBEC6 ;
     zoom: 1;
 }
 
@@ -121,6 +126,7 @@ img {
 }
 
 .nav li {
+	
     display: block;
     float: left;
     list-style-type: none;

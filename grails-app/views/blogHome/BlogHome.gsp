@@ -6,10 +6,11 @@
 		<script src="C:\devl\workspaces\GrailsBlogProject\build\resources\jquery-2.1.1.min.js"></script>
 		<meta name = "layout" content="blogLayout"/>
 		<title>Coolio Blog</title>
+		<asset:stylesheet src="application.css"/>
 	</head>
 	<body class="container">
-	<br>
-	<div>
+	
+	<div class="imageBackground">
     		<g:each in="${blogs}">
 				<div class="row">
 				<h3><g:link  mapping="searchFriendlyURL"
@@ -17,7 +18,7 @@
 							 id='${it.id}'>${it.title}</g:link></h3>
     			<p class="blog-front-page-post">${it?.textForFrontPage()}</p>
     			<div><h5>Posted by ${it?.author} on ${it.dateCreated}</h5></div>
-				<hr>
+				
 				</div>
     		</g:each>
     		 
