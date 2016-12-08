@@ -1,6 +1,6 @@
-#Thu, 08 Dec 2016 08:24:27 -0500
+#Thu, 08 Dec 2016 09:04:04 -0500
 
 info.app.version=0.1
 info.app.name=grailsBlog
-grails.env=test
+grails.env=development
 info.app.grailsVersion=3.2.3
