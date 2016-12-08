@@ -6,8 +6,6 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.example.Se
 grails.plugin.springsecurity.authority.className = 'org.example.SecRole'
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 grails.plugin.springsecurity.logout.postOnly = false
-grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/action/controller '
-grails.plugins.springsecurity.ui.register.postRegisterUrl = '/action/controller '
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/BlogHome/blogHome',   access: ['permitAll']],
 	[pattern: '/BlogPost/create',   access: ['ROLE_ADMIN']],

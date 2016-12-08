@@ -3,6 +3,9 @@
 <html>
     <head>
         <meta name="layout" content="blogLayout" />
+        <script src="C:\devl\workspaces\GrailsBlogProject\build\resources\bootstrap.min.css"></script>
+		<script src="C:\devl\workspaces\GrailsBlogProject\build\resources\bootstrap.min.js"></script>
+		<script src="C:\devl\workspaces\GrailsBlogProject\build\resources\jquery-2.1.1.min.js"></script>
         <g:set var="entityName" value="${message(code: 'blogPost.label', default: 'BlogPost')}" />
         <g:javascript src="commentScript.js" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
@@ -51,23 +54,27 @@
                 <div id="commentUpdates">
                     <g:render template='commentsTemplate' collection="${this.blogPost.comments}"/>
                 </div>
-                <g:formRemote id="commentForm" update="commentUpdates" name='saveComment' url='[controller:"Comment", action:"saveComment"]'>
-                    <div>
+                <g:form id="commentForm" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
+                    <div style="height:50px; padding-top:10px">
                         <span class="col-sm-1">Author: </span>
-                        <span class="col-sm-11">
-                            <g:textField name="author" class="author" id="authorId" params="${[author: author]}">
+                        <span class="col-sm-2 ">
+                       
+                            <g:textField name="author" class="author form-control" id="authorId">
                             </g:textField>
                         </span>
                     </div>
                     <div>
                         <span class="col-sm-1">Comment: </span>
-                        <span class="col-sm-11">
-                            <g:textArea name="comment" class="comment" id="commentId" params="${[comment: comment]}">
+                        <span class="col-sm-3" >
+                            <g:textArea name="comment" class="comment form-control" id="commentId" style="height:200px">
                             </g:textArea></span>
                     </div>
+
+                    
                     <g:hiddenField name="id" class="hiddenTitle" value="${this.blogPost.id}"/>
                     <div class="row col-sm-12">
                         <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
+
                     </div>
                 </g:formRemote>
             </div>

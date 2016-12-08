@@ -19,8 +19,8 @@ class BlogPostController {
 
 		
 		def postList = BlogPost.findAllByTitleIlike("%" + params.searchText + "%")
-		 render(view:'searchResult' , model:[postList: postList])
-
+		 render(view:'SearchResult' , model:[postList: postList])
+		
 		
 	}
     def show(BlogPost blogPost) {

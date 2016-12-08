@@ -6,8 +6,13 @@ log<!doctype html>
 		<script src="C:\devl\workspaces\GrailsBlogProject\build\resources\jquery-2.1.1.min.js"></script>
 		<meta name = "layout" content="blogLayout"/>
 		<title>Coolio Blog</title>
+		<asset:stylesheet src="application.css"/>
 	</head>
 	<body class="container">
+<<<<<<< HEAD
+	
+	<div class="imageBackground">
+=======
 	<br>
 		<div id="summary" class="col-sm-3">
 			<p>Most Recent Blog Posts</p>
@@ -23,11 +28,19 @@ log<!doctype html>
 			</g:each>
 		</div>
 		<div class="col-sm-9">
+>>>>>>> d698e55adcbeb4bada45f812a8336a168cc29b30
     		<g:each in="${blogs}">
 				<div class="blogs row">
 
 					<h3><g:link  mapping="searchFriendlyURL"
 							 params='[title: "${it.title}", year: "${it.dateCreated.year + 1900}", month: "${it.dateCreated.month + 1}", day: "$it.dateCreated.date"]'
+<<<<<<< HEAD
+							 id='${it.id}'>${it.title}</g:link></h3>
+    			<p class="blog-front-page-post">${it?.textForFrontPage()}</p>
+    			<div><h5>Posted by ${it?.author} on ${it.dateCreated}</h5></div>
+				
+				</div>
+=======
 							 id='${it.id}' class="blog-post-title">${it.title}</g:link></h3>
     				<p><span class="blog-front-page-post">${it?.text}</span></p>
 					<br>
@@ -39,6 +52,7 @@ log<!doctype html>
 					<hr>
 				</div>
 				<br>
+>>>>>>> d698e55adcbeb4bada45f812a8336a168cc29b30
     		</g:each>
     		 
     	</div>

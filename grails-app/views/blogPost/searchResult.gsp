@@ -5,6 +5,7 @@
 <body class="container">
 <div style="height:20px;"></div>
 	 <g:each in="${this.postList?.reverse()}" name="defaultList" var="post" status="i">
+
          <div class="row col-sm-12">
             <p>
                 <strong class="blogTitle col-xs-12">
