@@ -12,6 +12,7 @@ class BlogPost {
 	Date dateCreated
 	String author
 	String text
+	List comments
 
 	def commentsSize(){
 		return comments.size()
@@ -26,7 +27,6 @@ class BlogPost {
 	
 	static mapping = {
 		sort "dateCreated":"desc"
-		comments sort: 'dateCreated', order: 'desc'
 		text type: "text"
 	}
 }

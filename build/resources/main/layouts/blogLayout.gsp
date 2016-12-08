@@ -53,13 +53,7 @@
                 <sec:ifNotLoggedIn>
 				<li><g:link controller='login' action='auth' class="login-button">Login</g:link></li>
 				</sec:ifNotLoggedIn>
-<<<<<<< HEAD
-				
             <g:form name="searchResult" url="[controller:'BlogPost',action:'searchResult']" onsubmit="return isSearchTextFieldHasValue()">
-=======
-
-            <g:form name="searchResult" url="[controller:'BlogPost',action:'searchResult']">
->>>>>>> d698e55adcbeb4bada45f812a8336a168cc29b30
 							<div class="form-group">
 							
                             <li><g:textField name="searchText" class="search form-control  required="required" input-sm input-search" id="searchText" style="height:30px">

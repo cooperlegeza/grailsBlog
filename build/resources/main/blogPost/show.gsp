@@ -52,9 +52,9 @@
                 <div class="row"><h2>${this.blogPost.commentsSize()} Comments:</h2></div>
                 <hr class="comment-hr">
                 <div id="commentUpdates">
-                    <g:render template='commentsTemplate' collection="${this.blogPost.comments}"/>
+                    <g:render template='/blogPost/commentsTemplate' collection="${this.blogPost.comments.reverse()}"/>
                 </div>
-                <g:form id="commentForm" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
+                <g:formRemote id="commentForm" update="commentUpdates" name='saveComment' url='[controller:"BlogPost", action:"saveComment"]'>
                     <div style="height:50px; padding-top:10px">
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-2 ">
@@ -81,20 +81,5 @@
         </div>
     </body>
     <script>
-        $("#submitButton").on('submit', function() {
-            $.ajax(
-                {
-                    type: 'POST',
-                    data: $("#commentForm").serialize(),
-                    url: '/comment/saveComment',
-                    success: function (data, textStatus) {
-                        $('#commentUpdates').html(data);
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    }
-                }
-            );
-            return false
-        }
     </script>
 </html>

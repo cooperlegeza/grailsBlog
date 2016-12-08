@@ -49,12 +49,12 @@
             <br>
 
             <div class="col-sm-12">
-                <div class="row"><h2>${this.blogPost.commentsSize()} Comments:</h2></div>
+                <div class="row"><h2>Comments:</h2></div>
                 <hr class="comment-hr">
                 <div id="commentUpdates">
-                    <g:render template='commentsTemplate' collection="${this.blogPost.comments}"/>
+                    <g:render template='/blogPost/commentsTemplate' collection="${this.blogPost.comments.reverse()}"/>
                 </div>
-                <g:formRemote id="commentForm" name='saveComment' url='[controller:"Comment", action:"saveComment"]'>
+                <g:formRemote id="commentForm" update="commentUpdates" name='saveComment' url='[controller:"BlogPost", action:"saveComment"]'>
                     <div style="height:50px; padding-top:10px">
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-2 ">
@@ -72,6 +72,7 @@
 
                     
                     <g:hiddenField name="id" class="hiddenTitle" value="${this.blogPost.id}"/>
+                    <g:hiddenField name="dateCreated" class="hiddenDate" value="${new Date()}"/>
                     <div class="row col-sm-12">
                         <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
 
@@ -81,20 +82,5 @@
         </div>
     </body>
     <script>
-        $("#submitButton").on('submit', function() {
-            $.ajax(
-                {
-                    type: 'POST',
-                    data: $("#commentForm").serialize(),
-                    url: '/comment/saveComment',
-                    success: function (data, textStatus) {
-                        $('#commentUpdates').html(data);
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    }
-                }
-            );
-            return false
-        }
     </script>
 </html>

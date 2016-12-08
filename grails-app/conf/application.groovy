@@ -14,6 +14,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/BlogPost/show',   access: ['permitAll']],
 	[pattern: '/BlogPost/edit',   access: ['ROLE_ADMIN']],
 	[pattern: '/BlogPost/searchResult',   access: ['permitAll']],
+	[pattern: '/BlogPost/saveComment', access: ['permitAll']],
 	
 	[pattern: '/Comment/create',   access: ['permitAll']],
 	[pattern: '/Comment/save',   access: ['permitAll']],

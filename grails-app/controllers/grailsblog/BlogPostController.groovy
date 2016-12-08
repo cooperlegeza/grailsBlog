@@ -34,6 +34,19 @@ class BlogPostController {
     }
 
     @Transactional
+    def saveComment(){
+        BlogPost post = BlogPost.findById(params.id)
+        post.addToComments(new Comment(author:params.author,comment:params.comment).save()
+        render(template:'commentsTemplate', collection:post.comments.reverse())
+    }
+
+    @Transactional
+    def editComment(){
+        Comment comment = Comment.findByAuthorAndDateCreated(params.author, params.dateCreated)
+        comment.comment = params.comment
+    }
+
+    @Transactional
     def save(BlogPost blogPost) {
         if (blogPost == null) {
             transactionStatus.setRollbackOnly()
