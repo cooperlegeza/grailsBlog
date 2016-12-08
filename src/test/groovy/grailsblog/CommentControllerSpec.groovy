@@ -10,9 +10,9 @@ class CommentControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
 
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
-        assert false, "TODO: Provide a populateValidParams() implementation for this generated test suite"
+        params["author"] = 'Cooper'
+        params["content"] = 'I am a comment!'
+        params["dateCreated"] = new Date()
     }
 
     void "Test the index action returns the correct model"() {
@@ -33,35 +33,14 @@ class CommentControllerSpec extends Specification {
             model.comment!= null
     }
 
-    void "Test the save action correctly persists an instance"() {
-
-        when:"The save action is executed with an invalid instance"
-            request.contentType = FORM_CONTENT_TYPE
-            request.method = 'POST'
-            def comment = new Comment()
-            comment.validate()
-            controller.save(comment)
-
-        then:"The create view is rendered again with the correct model"
-            model.comment!= null
-            view == 'create'
-
-        when:"The save action is executed with a valid instance"
-            response.reset()
-            populateValidParams(params)
-            comment = new Comment(params)
-
-            controller.save(comment)
-
-        then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/comment/show/1'
-            controller.flash.message != null
-            Comment.count() == 1
-    }
-
     void "Test the saveComment action correctly persists an instance"() {
-        when:"The saveComment action is executed with an invalid instance"
-            request.contentType = FROM_CONTENT_TYPE
+        when:"The saveComment action is executed with a valid instance"
+            populateValidParams(params)
+            def comment = new Comment(params)
+            controller.saveComment()
+
+        then:"A redirect is issued to the blog post action"
+            reponse.json.comment.body == 'I am a comment!'
     }
 
     void "Test that the show action returns the correct model"() {
@@ -125,33 +104,6 @@ class CommentControllerSpec extends Specification {
         then:"A redirect is issued to the show action"
             comment != null
             response.redirectedUrl == "/comment/show/$comment.id"
-            flash.message != null
-    }
-
-    void "Test that the delete action deletes an instance if it exists"() {
-        when:"The delete action is called for a null instance"
-            request.contentType = FORM_CONTENT_TYPE
-            request.method = 'DELETE'
-            controller.delete(null)
-
-        then:"A 404 is returned"
-            response.redirectedUrl == '/comment/index'
-            flash.message != null
-
-        when:"A domain instance is created"
-            response.reset()
-            populateValidParams(params)
-            def comment = new Comment(params).save(flush: true)
-
-        then:"It exists"
-            Comment.count() == 1
-
-        when:"The domain instance is passed to the delete action"
-            controller.delete(comment)
-
-        then:"The instance is deleted"
-            Comment.count() == 0
-            response.redirectedUrl == '/comment/index'
             flash.message != null
     }
 }
