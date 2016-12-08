@@ -4,6 +4,7 @@
     <head>
         <meta name="layout" content="blogLayout" />
         <g:set var="entityName" value="${message(code: 'blogPost.label', default: 'BlogPost')}" />
+        <g:javascript src="commentScript.js" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
         <body class="container">
@@ -64,7 +65,7 @@
                             <g:textArea name="comment" class="comment" id="commentId" params="${[comment: comment]}">
                             </g:textArea></span>
                     </div>
-                    <g:hiddenField name="title" class="hiddenTitle" value="${this.blogPost.title}"/>
+                    <g:hiddenField name="id" class="hiddenTitle" value="${this.blogPost.id}"/>
                     <div class="row col-sm-12">
                         <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
                     </div>

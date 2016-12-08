@@ -13,11 +13,6 @@ class BlogPost {
 	String author
 	String text
 
-	def dayOfTheWeek() {
-		def timeZone = TimeZone.getTimeZone('GMT')
-		return dateCreated.format('EEEE', timeZone)
-	}
-
 	def commentsSize(){
 		return comments.size()
 	}

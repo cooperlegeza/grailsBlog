@@ -50,8 +50,6 @@
 	           <sec:ifAnyGranted roles='ROLE_USER'>
 	           <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
 	           </sec:ifAnyGranted>
-
-	            <li><g:link class="list" controller="BlogPost" action="index">Post List</g:link></li>
                 <sec:ifNotLoggedIn>
 				<li><g:link controller='login' action='auth' class="login-button">Login</g:link></li>
 				</sec:ifNotLoggedIn>
