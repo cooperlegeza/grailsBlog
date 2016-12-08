@@ -20,7 +20,7 @@ log<!doctype html>
 			<g:each in="${mostRecent}">
 				<ul>
 					<li>
-						<g:link  mapping="searchFriendlyURL"
+						<g:link mapping="searchFriendlyURL"
 								 params='[title: "${it.title}", year: "${it.dateCreated.year + 1900}", month: "${it.dateCreated.month + 1}", day: "$it.dateCreated.date"]'
 								 id='${it.id}' class="most-recent-blog">${it.title}</g:link> by ${it.author} on <span class="most-recent-date-created" title="${it.dateCreated}"><g:formatDate format="MM/dd"/  date="${it.dateCreated}"/></span>
 					</li>
@@ -32,7 +32,7 @@ log<!doctype html>
     		<g:each in="${blogs}">
 				<div class="blogs row">
 
-					<h3><g:link  mapping="searchFriendlyURL"
+					<h3><g:link class="blog-post-title"  mapping="searchFriendlyURL"
 							 params='[title: "${it.title}", year: "${it.dateCreated.year + 1900}", month: "${it.dateCreated.month + 1}", day: "$it.dateCreated.date"]'
 
 							 id='${it.id}'>${it.title}</g:link></h3>

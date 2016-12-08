@@ -116,7 +116,7 @@
                     <label for="remember_me">Remember me</label>
                 </p>
                 <p>
-                    <input id="submit" value="Login" type="submit">
+                    <input id="login-submit" value="Login" type="submit">
                 </p>
             </form>
         </div>

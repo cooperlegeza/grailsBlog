@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="grailsblog.BlogHomeControllerSpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-12-08T18:48:56" hostname="TNG10" time="2.455">
+  <properties/>
+  <testcase name="tenMostRecent correctly pulls ten and they are in the correct order" classname="grailsblog.BlogHomeControllerSpec" time="2.455"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

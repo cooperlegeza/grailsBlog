@@ -150,4 +150,9 @@ class BlogPostControllerSpec extends Specification {
             response.redirectedUrl == '/blogHome'
             flash.message != null
     }
+
+    void "Test that the search result method works"(){
+        when: "We search for some stuff"
+
+    }
 }

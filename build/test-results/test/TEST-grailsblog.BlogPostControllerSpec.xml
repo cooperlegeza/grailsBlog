@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="grailsblog.BlogPostControllerSpec" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-12-08T13:46:49" hostname="TNG10" time="3.092">
+<testsuite name="grailsblog.BlogPostControllerSpec" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-12-08T18:50:33" hostname="TNG10" time="3.221">
   <properties/>
-  <testcase name="Test the index action returns the correct model" classname="grailsblog.BlogPostControllerSpec" time="2.817"/>
-  <testcase name="Test the create action returns the correct model" classname="grailsblog.BlogPostControllerSpec" time="0.059"/>
-  <testcase name="Test the save action correctly persists an instance" classname="grailsblog.BlogPostControllerSpec" time="0.15"/>
-  <testcase name="Test that the show action returns the correct model" classname="grailsblog.BlogPostControllerSpec" time="0.011"/>
-  <testcase name="Test that the edit action returns the correct model" classname="grailsblog.BlogPostControllerSpec" time="0.006"/>
-  <testcase name="Test the update action performs an update on a valid domain instance" classname="grailsblog.BlogPostControllerSpec" time="0.028"/>
-  <testcase name="Test that the delete action deletes an instance if it exists" classname="grailsblog.BlogPostControllerSpec" time="0.018"/>
+  <testcase name="Test the index action returns the correct model" classname="grailsblog.BlogPostControllerSpec" time="2.929"/>
+  <testcase name="Test the create action returns the correct model" classname="grailsblog.BlogPostControllerSpec" time="0.064"/>
+  <testcase name="Test the save action correctly persists an instance" classname="grailsblog.BlogPostControllerSpec" time="0.167"/>
+  <testcase name="Test that the show action returns the correct model" classname="grailsblog.BlogPostControllerSpec" time="0.012"/>
+  <testcase name="Test that the edit action returns the correct model" classname="grailsblog.BlogPostControllerSpec" time="0.007"/>
+  <testcase name="Test the update action performs an update on a valid domain instance" classname="grailsblog.BlogPostControllerSpec" time="0.025"/>
+  <testcase name="Test that the delete action deletes an instance if it exists" classname="grailsblog.BlogPostControllerSpec" time="0.017"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -16,8 +16,6 @@ class BlogPostController {
     }
 
 	def searchResult(){
-
-		
 		def postList = BlogPost.findAllByTitleIlike("%" + params.searchText + "%")
 		 render(view:'SearchResult' , model:[postList: postList])
 		
@@ -36,7 +34,8 @@ class BlogPostController {
     @Transactional
     def saveComment(){
         BlogPost post = BlogPost.findById(params.id)
-        post.addToComments(new Comment(author:params.author,comment:params.comment).save()
+        Date date = new Date()
+        post.addToComments(new Comment(author:params.author,comment:params.comment,dateCreated:date)).save()
         render(template:'commentsTemplate', collection:post.comments.reverse())
     }
 

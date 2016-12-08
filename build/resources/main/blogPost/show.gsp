@@ -49,7 +49,7 @@
             <br>
 
             <div class="col-sm-12">
-                <div class="row"><h2>${this.blogPost.commentsSize()} Comments:</h2></div>
+                <div class="row"><h2>Comments:</h2></div>
                 <hr class="comment-hr">
                 <div id="commentUpdates">
                     <g:render template='/blogPost/commentsTemplate' collection="${this.blogPost.comments.reverse()}"/>
@@ -72,6 +72,7 @@
 
                     
                     <g:hiddenField name="id" class="hiddenTitle" value="${this.blogPost.id}"/>
+                    <g:hiddenField name="dateCreated" class="hiddenDate" value="${new Date()}"/>
                     <div class="row col-sm-12">
                         <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
 

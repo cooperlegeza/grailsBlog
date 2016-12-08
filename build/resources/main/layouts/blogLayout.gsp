@@ -60,7 +60,7 @@
                             
                             </g:textField></li>
                             <li>
-                        <g:submitButton name="searchPost" id="submit" class="btn btn-default  btn-info btn-sm " value="Search" >
+                        <g:submitButton name="searchPost" id="search-submit" class="btn btn-default  btn-info btn-sm " value="Search" >
                         </g:submitButton>
                         </li>
                 </g:form>
