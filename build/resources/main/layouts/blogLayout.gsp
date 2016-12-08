@@ -43,20 +43,23 @@
             <div class="form-group">
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
                <sec:ifAnyGranted roles='ROLE_ADMIN'>
-	            <li><g:link class="create" controller="BlogPost" action="create">New post</g:link></li>
-	            <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
+                   <li><g:link class="create" controller="BlogPost" action="create">New post</g:link></li>
+                   <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
 	           </sec:ifAnyGranted>
 	           
 	           <sec:ifAnyGranted roles='ROLE_USER'>
 	           <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
 	           </sec:ifAnyGranted>
-
-	            <li><g:link class="list" controller="BlogPost" action="index">Post List</g:link></li>
                 <sec:ifNotLoggedIn>
-				<li><g:link controller='login' action='auth'>Login</g:link></li>
+				<li><g:link controller='login' action='auth' class="login-button">Login</g:link></li>
 				</sec:ifNotLoggedIn>
+<<<<<<< HEAD
 				
             <g:form name="searchResult" url="[controller:'BlogPost',action:'searchResult']" onsubmit="return isSearchTextFieldHasValue()">
+=======
+
+            <g:form name="searchResult" url="[controller:'BlogPost',action:'searchResult']">
+>>>>>>> d698e55adcbeb4bada45f812a8336a168cc29b30
 							<div class="form-group">
 							
                             <li><g:textField name="searchText" class="search form-control  required="required" input-sm input-search" id="searchText" style="height:30px">

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="grailsblog.CommentSpec" tests="1" skipped="0" failures="1" errors="0" timestamp="2016-12-07T21:10:32" hostname="TNG10" time="2.705">
+  <properties/>
+  <testcase name="Comment does not save with empty parameters" classname="grailsblog.CommentSpec" time="2.705">
+    <failure message="groovy.lang.MissingPropertyException: No such property: saveComment for class: grailsblog.Comment" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: saveComment for class: grailsblog.Comment
+	at org.grails.datastore.gorm.GormInstanceApi.propertyMissing(GormInstanceApi.groovy:55)
+	at org.grails.datastore.gorm.GormEntity$Trait$Helper.propertyMissing(GormEntity.groovy:57)
+	at grailsblog.CommentSpec.Comment does not save with empty parameters(CommentSpec.groovy:20)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

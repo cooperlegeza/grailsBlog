@@ -10,9 +10,10 @@ class BlogPostControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
 
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
-        assert false, "TODO: Provide a populateValidParams() implementation for this generated test suite"
+        params["author"] = 'Cooper'
+        params["dateCreated"] = new Date()
+        params["text"] = 'I am a blog post!'
+        params["title"] = 'A new blog post'
     }
 
     void "Test the index action returns the correct model"() {
@@ -146,7 +147,7 @@ class BlogPostControllerSpec extends Specification {
 
         then:"The instance is deleted"
             BlogPost.count() == 0
-            response.redirectedUrl == '/blogPost/index'
+            response.redirectedUrl == '/blogHome'
             flash.message != null
     }
 }

@@ -7,6 +7,7 @@
 		<script src="C:\devl\workspaces\GrailsBlogProject\build\resources\bootstrap.min.js"></script>
 		<script src="C:\devl\workspaces\GrailsBlogProject\build\resources\jquery-2.1.1.min.js"></script>
         <g:set var="entityName" value="${message(code: 'blogPost.label', default: 'BlogPost')}" />
+        <g:javascript src="commentScript.js" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
         <body class="container">
@@ -16,19 +17,19 @@
             <div class="row col-sm-12">
                 <font color="gray"><g:formatDate date="${this.blogPost.dateCreated}" format="EEEE, MMMM dd, yyyy"/></font>
 
-                <h2>${this.blogPost.title}</h2>
+                <h2><span id="title">${this.blogPost.title}</span></h2>
                 <g:if test="${flash.message}">
                 <div class="alert alert-danger alert-dismissable" role="status">${flash.message}</div>
                 </g:if>
             </div>
             <div>
-                <div class="row col-sm-12">${this.blogPost.text}</div>
+                <div class="row col-sm-12" id="text">${this.blogPost.text}</div>
                 <div class="row col-sm-12">
                     <hr>
                     <br>
 
                     <h4>
-                        <span>Posted by ${this.blogPost.author} on <span title="${this.blogPost.dateCreated}"><g:formatDate format="MM/dd"/  date="${this.blogPost.dateCreated}"/></span></span>
+                        <span>Posted by <span id="author">${this.blogPost.author}</span> on <span id="date-created" title="${this.blogPost.dateCreated}"><g:formatDate format="MM/dd"/  date="${this.blogPost.dateCreated}"/></span></span>
                     </h4>
 
                 </div>
@@ -54,7 +55,11 @@
                     <g:render template='commentsTemplate' collection="${this.blogPost.comments}"/>
                 </div>
                 <g:form id="commentForm" name='saveComment' url='[controller:"Comment", action:"saveComment"]' action="saveComment" controller="Comment">
+<<<<<<< HEAD
                     <div style="height:50px; padding-top:10px">
+=======
+                    <div>
+>>>>>>> d698e55adcbeb4bada45f812a8336a168cc29b30
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-2 ">
                        
@@ -68,9 +73,15 @@
                             <g:textArea name="comment" class="comment form-control" id="commentId" style="height:200px">
                             </g:textArea></span>
                     </div>
+<<<<<<< HEAD
                     <g:hiddenField name="title" class="hiddenTitle" value="${this.blogPost.title}"/>
                     <div class="row col-sm-12" style="height:50px;">
                         <g:submitButton id="submitButton" class ="btn btn-default" name="saveComment" value="Submit"/>
+=======
+                    <g:hiddenField name="id" class="hiddenTitle" value="${this.blogPost.id}"/>
+                    <div class="row col-sm-12">
+                        <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
+>>>>>>> d698e55adcbeb4bada45f812a8336a168cc29b30
                     </div>
                 </g:form>
             </div>
