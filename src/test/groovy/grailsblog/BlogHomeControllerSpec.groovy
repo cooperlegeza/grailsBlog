@@ -16,15 +16,14 @@ class BlogHomeControllerSpec extends Specification {
     def cleanup() {
     }
 
-    void "tenMostRecent correctly pulls ten and they are in the correct order"() {
+    void "tenMostRecent pulls ten and they are in descending order by date created"() {
         List blogs = []
         0.step 15, 1, {
             blogs[it] = new BlogPost(title:it, author:it, text: it, dateCreated: new Date())
         }
-        blogs.sort{a,b -> a.dateCreated <=> b.dateCreated}
-        blogs.reverse()
+        blogs.sort{a,b -> b.dateCreated <=> a.dateCreated}
 
-        List blogsTopTen = controller.tenMostRecent(blogs)
+        blogsTopTen = controller.tenMostRecent(blogs)
 
         expect:
             blogsTopTen.size == 10
@@ -33,6 +32,20 @@ class BlogHomeControllerSpec extends Specification {
             expect:
                 blogsTopTen.get(it).dateCreated > blogsTopTen.get(it + 1).dateCreated
         }
+
+    }
+
+    void "blogsByMonthAndYear returns all objects sorted by year, then inside of the year sorted by month"(){
+        def initialDate = Date.parse("dd-MM-yyyy", "01-06-2013")
+        int range = 1095
+
+        List blogs = []
+        0.step 20, 1, {
+            def randomInterval = new Random().nextInt(range)
+            def randomDate = initialDate + randomInterval
+            blogs[it] = new BlogPost(title:it, author:it, text: it, dateCreated:randomDate)
+        }
+
 
     }
 }

@@ -16,5 +16,7 @@ class Comment {
     }
 	static mapping = {
 		sort "dateCreated":"desc"
+		text type: "text"
+
 	}
 }

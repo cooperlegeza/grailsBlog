@@ -4,7 +4,7 @@ import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(BlogPostController)
-@Mock(BlogPost)
+@Mock([BlogPost, Comment])
 class BlogPostControllerSpec extends Specification {
 
     def populateValidParams(params) {
@@ -14,6 +14,7 @@ class BlogPostControllerSpec extends Specification {
         params["dateCreated"] = new Date()
         params["text"] = 'I am a blog post!'
         params["title"] = 'A new blog post'
+        params["comments"] = []
     }
 
     void "Test the index action returns the correct model"() {
@@ -151,8 +152,22 @@ class BlogPostControllerSpec extends Specification {
             flash.message != null
     }
 
-    void "Test that the search result method works"(){
-        when: "We search for some stuff"
+    void "Test that the saveComment action adds a comment to the blog post"(){
+        when:
+            populateValidParams(params)
+            BlogPost post = new BlogPost(params)
+            post.save(flush: true, validate: false)
+            params.author = 'Author'
+            params.comment = 'This is a comment'
+            params.id = 1
+            params.dateCreated = new Date()
+            params.post = post
+            controller.saveComment()
+            Comment comment = post.comments[0]
 
+        then:
+            post.comments.size() == 1
+            comment.author == 'Author'
+            comment.comment == 'This is a comment'
     }
 }

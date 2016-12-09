@@ -1,7 +1,5 @@
 package grailsblog
 
-import java.awt.List
-
 class BlogHomeController {
 	def blogHome = {
 		def blogs = []
@@ -12,18 +10,19 @@ class BlogHomeController {
 		
 	}
 
-	def tenMostRecent(ArrayList listOfSortedBlogs) {
+	def tenMostRecent(blogs) {
 		def tenMostRecentBlogs = []
-		def size = listOfSortedBlogs.size()
-		if(listOfSortedBlogs.size < 10) {
+		def size = blogs.size()
+		if(blogs.size < 10) {
 			0.step size, 1, {
-				tenMostRecentBlogs.add(it, listOfSortedBlogs.get(it))
+				tenMostRecentBlogs.add(it, blogs.get(it))
 			}
 		} else {
 			0.step 10, 1, {
-				tenMostRecentBlogs.add(it, listOfSortedBlogs.get(it))
+				tenMostRecentBlogs.add(it, blogs.get(it))
 			}
 		}
+
 		return tenMostRecentBlogs
 	}
 }

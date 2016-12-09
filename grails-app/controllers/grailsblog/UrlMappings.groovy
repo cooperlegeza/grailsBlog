@@ -13,7 +13,7 @@ class UrlMappings {
         "500"(view:'/error')
         "404"(view:'/notFound')
 
-        name searchFriendlyURL: "/$id/$year?/$month?/$day?/$title"{
+        name searchFriendlyURL: "/$year?/$month?/$day?/$title"{
             controller = 'BlogPost'
             action = 'show'
         }

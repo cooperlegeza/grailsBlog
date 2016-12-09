@@ -2,8 +2,6 @@ package grailsblog
 
 class BlogPost {
 
-	int FRONT_PAGE_POST_LENGTH_LIMIT = 200
-
 	static searchable ={
 		only = 'title'
 	}
@@ -13,10 +11,6 @@ class BlogPost {
 	String author
 	String text
 	List comments
-
-	def commentsSize(){
-		return comments.size()
-	}
 
 	static hasMany = [comments:Comment]
     static constraints = {

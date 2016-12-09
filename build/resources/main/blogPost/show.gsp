@@ -54,7 +54,7 @@
                 <div id="commentUpdates">
                     <g:render template='/blogPost/commentsTemplate' collection="${this.blogPost.comments.reverse()}"/>
                 </div>
-                <g:formRemote id="commentForm" update="commentUpdates" name='saveComment' url='[controller:"BlogPost", action:"saveComment"]'>
+                <form onsubmit="jQuery.ajax({type:'POST',data:jQuery(this).serialize(), url:'/blogPost/saveComment',success:function(data,textStatus){jQuery('#commentUpdates').html(data);jQuery('#commentForm')[0].reset();},error:function(XMLHttpRequest,textStatus,errorThrown){}});return false" method="post" action="/blogPost/saveComment" id="commentForm">
                     <div style="height:50px; padding-top:10px">
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-2 ">
@@ -74,13 +74,14 @@
                     <g:hiddenField name="id" class="hiddenTitle" value="${this.blogPost.id}"/>
                     <g:hiddenField name="dateCreated" class="hiddenDate" value="${new Date()}"/>
                     <div class="row col-sm-12">
-                        <g:submitButton id="submitButton" name="saveComment" value="Submit"/>
+                    <button id="submitButton" class="btn btn-default" name="saveComment" value="Submit">Submit Comment</button>
 
                     </div>
-                </g:formRemote>
+                </form>
             </div>
         </div>
     </body>
     <script>
+
     </script>
 </html>

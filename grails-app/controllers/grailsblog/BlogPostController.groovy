@@ -35,14 +35,12 @@ class BlogPostController {
     def saveComment(){
         BlogPost post = BlogPost.findById(params.id)
         Date date = new Date()
-        post.addToComments(new Comment(author:params.author,comment:params.comment,dateCreated:date)).save()
+        Comment comment = new Comment(author:params.author, comment:params.comment)
+        comment.save(flush: true)
+        post.addToComments(comment)
+        post.save(flush: true)
+        post.refresh()
         render(template:'commentsTemplate', collection:post.comments.reverse())
-    }
-
-    @Transactional
-    def editComment(){
-        Comment comment = Comment.findByAuthorAndDateCreated(params.author, params.dateCreated)
-        comment.comment = params.comment
     }
 
     @Transactional
