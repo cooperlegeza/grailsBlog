@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="grailsblog.BlogHomeControllerSpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-12-08T20:52:04" hostname="TNG10" time="2.624">
+<testsuite name="grailsblog.BlogHomeControllerSpec" tests="4" skipped="0" failures="0" errors="0" timestamp="2016-12-13T18:21:32" hostname="TNG10" time="2.913">
   <properties/>
-  <testcase name="tenMostRecent pulls ten and they are in descending order by date created" classname="grailsblog.BlogHomeControllerSpec" time="2.624"/>
+  <testcase name="Test tenMostRecent pulls ten and they are in descending order by date created" classname="grailsblog.BlogHomeControllerSpec" time="2.78"/>
+  <testcase name="Test tenMostRecent pulls all from a list if there is less than ten in the list" classname="grailsblog.BlogHomeControllerSpec" time="0.026"/>
+  <testcase name="Test blogsByMonthAndYear returns all objects sorted by year, then inside of the year sorted by month" classname="grailsblog.BlogHomeControllerSpec" time="0.096"/>
+  <testcase name="Test createYearMap returns a map with twelve nodes, each a string of one of the months of the year, in month order" classname="grailsblog.BlogHomeControllerSpec" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

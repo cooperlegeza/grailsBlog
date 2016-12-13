@@ -4,11 +4,14 @@ import org.example.SecRole
 import org.example.SecUser
 import org.example.SecUserSecRole
 
+import java.text.SimpleDateFormat
+
 class BootStrap {
 
     def init = { servletContext ->
 		def adminRole = new SecRole(authority: 'ROLE_ADMIN').save()
 		def userRole = new SecRole(authority: 'ROLE_USER').save()
+		def date = new Date()
 		def post = new BlogPost(title:'Hello!', author:'Cooper',
 				text:'I am a blog post! I would enjoy it if you read me,' +
 						'and or destroyed the world!', dateCreated: new Date()).save()
@@ -25,9 +28,8 @@ class BootStrap {
 						'\n' +
 						'Mauris euismod commodo eros et egestas. Phasellus lacinia, orci id efficitur ultrices, neque eros pharetra orci, vitae ultricies diam orci vitae nunc. Donec purus nisi, semper eu scelerisque fringilla, venenatis a neque. Sed nunc sapien, semper et nunc ut, finibus consectetur dolor. Ut nisl elit, egestas sed lectus a, tincidunt sollicitudin arcu. Nulla ullamcorper tincidunt vehicula. Aliquam placerat mattis ipsum vitae porta. ',
 						dateCreated: new Date()).save()
-
 		
-		def adminUser = new SecUser(username: 'me', password: 'password').save()
+		def adminUser = new SecUser(username: 'Cooper', password: 'password').save()
 		def regularUser2 = new SecUser(username: 'user', password: 'password').save()
 		
 		

@@ -119,14 +119,6 @@ a.navbar-brand {
     height: 400px;
 }
 
-.svg #band {
-    background-image: url(../img/grails-cupsonly-logo-white.svg);
-}
-
-.no-svg #band {
-    background-image: url(../img/groovy-logo-white.png);
-}
-
 @media (max-width: 1010px) {
     #band {
         background-size: 90%;
@@ -237,7 +229,7 @@ a.navbar-brand {
 
 @media (max-width: 1010px) {
     .event-logo {
-        height: ;
+        height: 10%;
     }
 
 }
@@ -380,11 +372,6 @@ body, html {
     line-height: 25px;
     font-weight: normal;
     font-size: 14px;
-}
-
-a {
-    color: #db4800;
-    text-decoration: underline;
 }
 
 a:hover {
@@ -581,7 +568,6 @@ a:hover {
     display: block;
     width: 80px;
     height: 80px;
-    background-image: url(../img/icons-colset-2-its.png);
     float: left;
     margin-top: 12px;
     margin-right: 15px

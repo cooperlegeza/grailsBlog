@@ -17,7 +17,7 @@
             <div class="row col-sm-12">
                 <font color="gray"><g:formatDate date="${this.blogPost.dateCreated}" format="EEEE, MMMM dd, yyyy"/></font>
 
-                <h2><span id="title">${this.blogPost.title}</span></h2>
+                <h1><span id="title">${this.blogPost.title}</span></h1>
                 <g:if test="${flash.message}">
                 <div class="alert alert-danger alert-dismissable" role="status">${flash.message}</div>
                 </g:if>
@@ -34,20 +34,25 @@
 
                 </div>
                 <sec:ifAnyGranted roles='ROLE_ADMIN'>
-                        <g:form class="row col-sm-2" resource="${this.blogPost}" method="DELETE">
-                            <fieldset class="buttons col-sm-12">
-                                <g:link class="edit" action="edit" resource="${this.blogPost}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                                <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                            </fieldset>
-                        </g:form>
+                    <g:link class="edit" action="edit" resource ="${this.blogPost}">
+                        <button class="btn btn-primary">
+                            Edit Post
+                        </button>
+                    </g:link>
+                    <g:form action="delete" method="DELETE" class="btn-group" role="group">
+                        <g:link action="delete" class="delete" type="submit">
+                            <g:hiddenField name="id" value="${this.blogPost.id}"/>
+                            <button class="btn btn-warning" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
+                                Delete
+                            </button>
+                        </g:link>
+                    </g:form>
                 </sec:ifAnyGranted>
             </div>
             <br>
         </div>
         <div>
-
             <br>
-
             <div class="col-sm-12">
                 <div class="row"><h2>Comments:</h2></div>
                 <hr class="comment-hr">
@@ -58,8 +63,7 @@
                     <div style="height:50px; padding-top:10px">
                         <span class="col-sm-1">Author: </span>
                         <span class="col-sm-2 ">
-                       
-                            <g:textField name="author" class="author form-control" id="authorId">
+                            <g:textField name="author" class="author form-control" id="authorId" value="${sec.username()}">
                             </g:textField>
                         </span>
                     </div>
@@ -69,13 +73,9 @@
                             <g:textArea name="comment" class="comment form-control" id="commentId" style="height:200px">
                             </g:textArea></span>
                     </div>
-
-                    
                     <g:hiddenField name="id" class="hiddenTitle" value="${this.blogPost.id}"/>
-                    <g:hiddenField name="dateCreated" class="hiddenDate" value="${new Date()}"/>
                     <div class="row col-sm-12">
                     <button id="submitButton" class="btn btn-default" name="saveComment" value="Submit">Submit Comment</button>
-
                     </div>
                 </form>
             </div>

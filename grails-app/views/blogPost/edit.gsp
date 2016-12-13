@@ -20,14 +20,23 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.blogPost}" method="PUT">
+            <g:form resource="${this.blogPost}" class="col-sm-8" method="PUT" action="update">
                 <g:hiddenField name="version" value="${this.blogPost?.version}" />
                 <fieldset class="form">
-                    <f:all bean="blogPost"/>
+                    <div class="row">
+                        <div><b>Title: </b></div>
+                        <div><g:textField value="${this.blogPost.title}" name="title" id="titleId" /></div>
+                    </div>
+                    <div class="row">
+                        <div><b>Text: </b></div>
+                        <div><g:textArea value="${this.blogPost.text}" name="text" id="textId" rows="20" cols="300"/></div>
+                    </div>
+                    <g:hiddenField name="author" value="${this.blogPost.author}"/>
                 </fieldset>
-                <fieldset class="buttons">
-                    <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                </fieldset>
+                <div class="row">
+                    <g:submitButton name="Update" value="Edit Post" class="save"><button class="btn btn-primary">Edit Post</button></g:submitButton>
+                </div>
+            <br/>
             </g:form>
         </div>
     </body>

@@ -1,5 +1,8 @@
 package grailsblog
 
+import javax.sql.rowset.spi.TransactionalWriter
+import java.text.SimpleDateFormat
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -28,19 +31,24 @@ class BlogPostController {
     }
 
     def create() {
-        respond new BlogPost(params)
+        def post = new BlogPost(params)
+        respond post
     }
 
     @Transactional
     def saveComment(){
-        BlogPost post = BlogPost.findById(params.id)
-        Date date = new Date()
-        Comment comment = new Comment(author:params.author, comment:params.comment)
-        comment.save(flush: true)
-        post.addToComments(comment)
-        post.save(flush: true)
-        post.refresh()
+        BlogPost post = saveCommentWithoutRender(params)
         render(template:'commentsTemplate', collection:post.comments.reverse())
+    }
+
+    def saveCommentWithoutRender(params){
+        BlogPost post = BlogPost.findById(params.id)
+        Comment comment = new Comment(author:params.author,comment:params.comment)
+        comment.save(flush:true)
+        post.addToComments(comment)
+        post.save(flush:true)
+        post.refresh()
+        return post
     }
 
     @Transactional
@@ -68,53 +76,29 @@ class BlogPostController {
         }
     }
 
-    def edit(BlogPost blogPost) {
-        respond blogPost
+    def edit(BlogPost post) {
+        respond post
+    }
+
+    def editPost(params, post){
+        post.text = params.text
+        post.title = params.title
+        post.save(flush:true)
+        post.refresh()
+        return post
     }
 
     @Transactional
-    def update(BlogPost blogPost) {
-        if (blogPost == null) {
-            transactionStatus.setRollbackOnly()
-            notFound()
-            return
-        }
-
-        if (blogPost.hasErrors()) {
-            transactionStatus.setRollbackOnly()
-            respond blogPost.errors, view:'edit'
-            return
-        }
-
-        blogPost.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'blogPost.label', default: 'BlogPost'), blogPost.id])
-                redirect blogPost
-            }
-            '*'{ respond blogPost, [status: OK] }
-        }
+    def update(BlogPost post) {
+        post = editPost(params, post)
+        redirect(action: "show", id:post.id)
     }
 
     @Transactional
     def delete(BlogPost blogPost) {
+        blogPost.delete(flush:true)
+        redirect(controller:'blogHome', action:'blogHome')
 
-        if (blogPost == null) {
-            transactionStatus.setRollbackOnly()
-            notFound()
-            return
-        }
-
-        blogPost.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'blogPost.label', default: 'BlogPost'), blogPost.id])
-                redirect(controller:'blogHome')
-            }
-            '*'{ render status: NO_CONTENT }
-        }
     }
 
     protected void notFound() {

@@ -1,9 +1,12 @@
 <div class="blogs row">
 
-    <h3><g:link method="post" class="blog-post-title"  mapping="searchFriendlyURL"
+    <h3>
+        <g:link method="post" class="blog-post-title"  mapping="searchFriendlyURL"
                 params='[title: "${it.title}", year: "${it.dateCreated.year + 1900}", month: "${it.dateCreated.month + 1}", day: "$it.dateCreated.date"]'
 
-                id='${it.id}'>${it.title}</g:link></h3>
+                id='${it.id}'>${it.title}</g:link>
+    </h3>
+    <hr/>
     <p><span class="blog-front-page-post">${it?.text}</span></p>
     <br>
     <div>

@@ -16,7 +16,7 @@
             <g:hasErrors bean="${this.blogPost}">
             <ul class="errors" role="alert">
                 <g:eachError bean="${this.blogPost}" var="error">
-                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+                <li> <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
                 </g:eachError>
             </ul>
             </g:hasErrors>
@@ -27,17 +27,14 @@
                         <div><g:textField name="title" id="titleId" /></div>
                     </div>
                     <div class="row">
-                        <div><b>Author: </b></div>
-                        <div><g:textField name="author" id="authorId" /></div>
-                    </div>
-                    <div class="row">
                         <div><b>Text: </b></div>
                         <div><g:textArea name="text" id="textId" rows="10" cols="200"/></div>
                     </div>
+                    <g:hiddenField name="author" value="${sec.username()}"/>
                 </fieldset>
-                <fieldset class="buttons">
-                    <g:submitButton name="Create" class="btn btn-default save"><button>Create</button></g:submitButton>
-                </fieldset>
+                <div class="row">
+                    <g:submitButton name="Create" value="Create" class="save"><button class="btn btn-primary">Create</button></g:submitButton>
+                </div>
             </g:form>
         </div>
     </body>

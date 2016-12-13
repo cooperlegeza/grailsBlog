@@ -4,8 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="C:\devl\workspaces\GrailsBlogProject\build\resources\jquery-2.1.1.min.js"></script>
+    <script src="C:\devl\workspaces\GrailsBlogProject\build\resources\bootstrap.min.css"></script>
+    <script src="C:\devl\workspaces\GrailsBlogProject\build\resources\bootstrap.min.js"></script>
     <title>
         <g:layoutTitle default="RadicalBlog"/>
     </title>
@@ -41,19 +43,19 @@
 	<div class="nav li" role="navigation">
             <ul>
             <div class="form-group">
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><a class="homeButton" href="${createLink(uri: '/')}"><button class="btn btn-primary"><g:message code="default.home.label"/></button></a></li>
                <sec:ifAnyGranted roles='ROLE_ADMIN'>
-                   <li><g:link class="create" controller="BlogPost" action="create">New post</g:link></li>
-                   <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
+                   <li><g:link class="createNewPost" controller="BlogPost" action="create"><button class="btn btn-primary">New post</button></g:link></li>
+                   <li><g:link class="logout" controller="logout"><button class="btn btn-primary">Logout</button></g:link></li>
 	           </sec:ifAnyGranted>
-	           
+
 	           <sec:ifAnyGranted roles='ROLE_USER'>
-	           <li><g:link class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">Logout</g:link></li>
+	           <li><g:link class="logout" controller="logout"><button class="btn btn-primary">Logout</button></g:link></li>
 	           </sec:ifAnyGranted>
                 <sec:ifNotLoggedIn>
-				<li><g:link controller='login' action='auth' class="login-button">Login</g:link></li>
+				<li><g:link controller='login' action='auth' class="login-button"><button class="btn btn-primary">Login</button></g:link></li>
 				</sec:ifNotLoggedIn>
-            <g:form name="searchResult" url="[controller:'BlogPost',action:'searchResult']" onsubmit="return isSearchTextFieldHasValue()">
+                <g:form class="pull-right" name="searchResult" url="[controller:'BlogPost',action:'searchResult']" onsubmit="return isSearchTextFieldHasValue()">
 							<div class="form-group">
 							
                             <li><g:textField name="searchText" class="search form-control  required="required" input-sm input-search" id="searchText" style="height:30px">
